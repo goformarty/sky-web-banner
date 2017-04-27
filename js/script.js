@@ -48,6 +48,9 @@ window.onload = function(){
 	
 	function handleAllImagesLoaded() {
 		console.log("All the images have loaded.");
+		// clear the stage after 1500 miliseconds.
+		setTimeout(clearTheStage(),  15000);
+		// add the background when images are loaded.
 		drawTheBannerBackground();
 	}
 	
@@ -127,6 +130,53 @@ window.onload = function(){
 		console.log("draw and animate frame two.");
 		
 		// refer to the creative brief, frame 2 for guidance.
+
+		console.log("draw and animate frame two.");
+		
+		// refer to the creative brief, frame 2 for guidance.
+
+		// create gradient text element:
+		// provide the loader result for the item with id == 'gradient2'
+		// as a bitmap which will be stored in our gradient2 variable.
+		gradient2 = new createjs.Bitmap( loader.getResult( "gradient2" ) );
+		// set the gradient1 bitmap alpha to zero.
+		gradient2.alpha = 0;
+		// animate the bluecopy bitmap alpha value to 1
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(gradient2).to({alpha:1}, 1000);
+
+		// create grey copy text element:
+		// provide the loader result for the item with id == 'greycopy'
+		// as a bitmap which will be stored in our greycopy variable.
+		greycopy = new createjs.Bitmap( loader.getResult( "greycopy" ) );
+		// set the greycopy bitmap alpha to zero
+		greycopy.alpha = 0;
+		// animate the bluecopy bitmap alpha value to 1
+		// after waiting for 1000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(greycopy).wait(1000).to({alpha:1}, 1000);
+		
+		// create stamp element:
+		// provide the loader result for the item with id == 'stamp'
+		// as a bitmap which will be stored in our stamp variable.
+		stamp = new createjs.Bitmap( loader.getResult( "stamp" ) );
+		// move stamp element above the canvas
+		stamp.y = -250;
+		// animate the stamp bitmap y value to 0 with bounceOut effect
+		// after waiting for 1000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(stamp).wait(1000).to({y:0}, 1000, createjs.Ease.bounceOut);
+
+
+		// create container to store frame2 elements - all except the logo.
+		container2 = stage.addChild(new createjs.Container());
+		// add elements to container2.
+		container2.addChild(gradient2, greycopy, stamp);
+		// animate the container2 alpha value to 0
+		// after waiting for 2000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(container2).wait(2000).to({alpha:0}, 1000);
+
 		
 		// after a timeout and the animations have completed, draw frame 3.
 		setTimeout(frame3, 3000);
@@ -136,6 +186,10 @@ window.onload = function(){
 		console.log("draw and animate frame three.");
 		
 		// refer to the creative brief, frame 3 for guidance.
+	}
+	function clearTheStage() {
+		console.log("clear the stage after 15s");
+		stage.removeAllChildren();
 	}
 	
 };
