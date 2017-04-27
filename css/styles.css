@@ -1,3 +1,32 @@
 @charset "UTF-8";
 /* CSS Document */
+html,body {
+	margin: 0;
+	padding: 0;
+}
 
+.wrapper {
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+    /* full window width and height for centering childs*/
+	height: 100vh;
+	width: 100vw;
+	/* center banner on a page horizontally and verically */
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	resize: both;
+	overflow: auto;
+	margin: 0 auto;
+}
+
+canvas {
+    justify-content: center;
+    position: relative;
+    top: -30px;
+}
