@@ -49,7 +49,8 @@ window.onload = function(){
 	function handleAllImagesLoaded() {
 		console.log("All the images have loaded.");
 		// clear the stage after 1500 miliseconds.
-		setTimeout(clearTheStage(),  15000);
+		console.log("trigger clear stage timeout.");
+		setTimeout(clearTheStage(), 15000);
 		// add the background when images are loaded.
 		drawTheBannerBackground();
 	}
@@ -131,10 +132,6 @@ window.onload = function(){
 		
 		// refer to the creative brief, frame 2 for guidance.
 
-		console.log("draw and animate frame two.");
-		
-		// refer to the creative brief, frame 2 for guidance.
-
 		// create gradient text element:
 		// provide the loader result for the item with id == 'gradient2'
 		// as a bitmap which will be stored in our gradient2 variable.
@@ -186,10 +183,100 @@ window.onload = function(){
 		console.log("draw and animate frame three.");
 		
 		// refer to the creative brief, frame 3 for guidance.
+
+		// create call to action element: 
+		// provide the loader result for the item with id == 'cta'
+		// as a bitmap which will be stored in our cta variable.
+		cta = new createjs.Bitmap( loader.getResult( "cta" ) );
+
+		// function for sheen effect
+		var imgSheen = new createjs.Shape(), c = new createjs.Container();
+		c.addChild(imgSheen);
+		ctaSheen = new createjs.Bitmap("http://landtransportguru.net/web/wp-content/uploads/2016/02/Ad-MediumRectangle-300x250.jpg");
+
+		ctaSheen.image.onload = function() {
+
+
+			imgSheen.graphics.beginLinearGradientFill(['rgba(255,255,255,0)', '#000', 'rgba(255,255,255,0)'], [0, 0.5, 1], 0, 0, 50, 0).drawRect(0, 0, 100, 400);
+			c.cache(0,0,100,400);
+
+			createjs.Tween.get(imgSheen, {loop:true}).to({x:500}, 2000, createjs.Ease.quadInOut)
+			.on("change", function() { 
+				c.cache(0,0,600,400); 
+				ctaSheen.cache(0,0,ctaSheen.image.width,ctaSheen.image.height);
+			});
+
+			ctaSheen.filters = [
+			new createjs.AlphaMaskFilter(c.cacheCanvas)
+			];
+		};
+
+
+		// create gradient text element:
+		// provide the loader result for the item with id == 'gradient3'
+		// as a bitmap which will be stored in our gradient3 variable.
+		gradient3 = new createjs.Bitmap( loader.getResult( "gradient3" ) );
+		// set the gradient1 bitmap alpha to zero.
+		gradient3.alpha = 0;
+		// animate the bluecopy bitmap alpha value to 1
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(gradient3).to({alpha:1}, 500);
+
+		// create blue copy text element:
+		// provide the loader result for the item with id == 'bluecopy3'
+		// as a bitmap which will be stored in our bluecopy3 variable.
+		bluecopy3 = new createjs.Bitmap( loader.getResult( "bluecopy3" ) );
+		// set the bluecopy3 bitmap alpha to zero
+		bluecopy3.alpha = 0;
+		// animate the bluecopy bitmap alpha value to 1
+		// after waiting for 1000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(bluecopy3).wait(500).to({alpha:1}, 500);
+
+		// create gradient text element:
+		// provide the loader result for the item with id == 'gradient3a'
+		// as a bitmap which will be stored in our gradient3a variable.
+		gradient3a = new createjs.Bitmap( loader.getResult( "gradient3a" ) );
+		// set the gradient3a bitmap alpha to zero
+		gradient3a.alpha = 0;
+		// animate the gradient3a bitmap alpha value to 1
+		// after waiting for 2000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(gradient3a).wait(700).to({alpha:1}, 500);
+
+		// create grey copy text element:
+		// provide the loader result for the item with id == 'greycopy3'
+		// as a bitmap which will be stored in our greycopy3 variable.
+		greycopy3 = new createjs.Bitmap( loader.getResult( "greycopy3" ) );
+		// set the greycopy3 bitmap alpha to zero
+		greycopy3.alpha = 0;
+		// animate the greycopy3 bitmap alpha value to 1
+		// after waiting for 3000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(greycopy3).wait(900).to({alpha:1}, 500);
+
+		// create cta sheen element:
+		// provide the loader result for the item with id == 'ctaSheen'
+		// as a bitmap which will be stored in our ctaSheen variable.
+		ctaSheen = new createjs.Bitmap( loader.getResult( "ctaSheen" ) );
+		// move ctaSheen element above the canvas
+		ctaSheen.alpha = 0;
+		// animate the stamp bitmap y value to 0 with bounceOut effect
+		// after waiting for 4000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(ctaSheen).wait(700).to({alpha:1}, 1000, createjs.Ease.elasticInOut)
+		.wait(2000).to({alpha:0}, 200, createjs.Ease.elasticInOut);
+
+
+		// create container to store frame3 elements - all except the logo.
+		container3 = stage.addChild(new createjs.Container());
+		// add elements to container2.
+		container3.addChild(gradient3, bluecopy3, gradient3a, greycopy3, cta, ctaSheen);
+		// after a timeout and the animations have completed, clear the stage.
+		setTimeout(clearTheStage, 3000);
 	}
 	function clearTheStage() {
-		console.log("clear the stage after 15s");
+		console.log("clear the stage after 15s.");
 		stage.removeAllChildren();
 	}
-	
 };
