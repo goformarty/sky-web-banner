@@ -34,6 +34,6 @@ The simpler you make the programming, the easier it will be to complete the task
 - Photoshop CS6;
 - Sublime Text;
 
-## What can be done next?:
+## Ways to improve:
 - add unit testing with js-imagediff and Jasmine;
 - optimise the solution for the sheen effect on the button;
