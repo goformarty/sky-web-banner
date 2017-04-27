@@ -31,7 +31,20 @@ window.onload = function(){
 	// provide a manifest of files and ids to be loaded.
 	loader.loadManifest([
 		{id: "background", src:"images/background.png"},
-	]);
+		{id: "logo", src:"images/logo.png"},
+		{id: "gradient1", src:"images/gradient1.png"},
+		{id: "bluecopy", src:"images/bluecopy.png"},
+		{id: "products", src:"images/products.png"},
+		{id: "gradient2", src:"images/gradient2.png"},
+		{id: "greycopy", src:"images/greycopy.png"},
+		{id: "stamp", src:"images/stamp.png"},
+		{id: "cta", src:"images/cta.png"},
+		{id: "gradient3", src:"images/gradient3.png"},
+		{id: "bluecopy3", src:"images/bluecopy3.png"},
+		{id: "gradient3a", src:"images/gradient3a.png"},
+		{id: "greycopy3", src:"images/greycopy3.png"},
+		{id: "ctaSheen", src:"images/ctaSheen.png"}
+		]);
 	
 	function handleAllImagesLoaded() {
 		console.log("All the images have loaded.");
