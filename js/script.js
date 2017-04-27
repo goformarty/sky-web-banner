@@ -3,7 +3,9 @@ window.onload = function(){
 	console.log("Junior developer test.");
 	
 	// declare your variables here.
-	var background;
+	var background, logo, container1, container2, container3, 
+	gradient1, gradient2, gradient3, gradient3a, bluecopy, products, greycopy,
+	stamp, cta, ctaSheen, bluecopy3, greycopy3;
 	
 	
 	// store a reference to the canvas which we will draw on.
