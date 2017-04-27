@@ -68,13 +68,56 @@ window.onload = function(){
 		createjs.Tween.get( background ).to( {alpha:1}, 1000 );
 		
 		// after the background is drawn on the canvas draw and animate the content for frame 1.
-		setTimeout(frame1, 100);
+		setTimeout(frame1, 1000);
 	}
 	
 	function frame1() {
 		console.log("draw and animate frame one.");
 		
 		// refer to the creative brief, frame 1 for guidance.
+
+		// create products element: 
+		// provide the loader result for the item with id == 'products'
+		// as a bitmap which will be stored in our products variable.
+		products = new createjs.Bitmap( loader.getResult( "products" ) );
+
+		// create logo element:
+		// provide the loader result for the item with id == 'logo'
+		// as a bitmap which will be stored in our logo variable.
+		logo = new createjs.Bitmap( loader.getResult( "logo" ) );
+		stage.addChild(logo);
+
+		// create gradient text element:
+		// provide the loader result for the item with id == 'gradient1'
+		// as a bitmap which will be stored in our gradient1 variable.
+		gradient1 = new createjs.Bitmap( loader.getResult( "gradient1" ) );
+		// set the gradient1 bitmap alpha to zero.
+		gradient1.alpha = 0;
+		// animate the bluecopy bitmap alpha value to 1
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(gradient1).to({alpha:1}, 1000);
+
+		// create blue copy text element:
+		// provide the loader result for the item with id == 'bluecopy'
+		// as a bitmap which will be stored in our bluecopy variable.
+		bluecopy = new createjs.Bitmap( loader.getResult( "bluecopy" ) );
+		// set the bluecopy bitmap alpha to zero
+		bluecopy.alpha = 0;
+		// animate the bluecopy bitmap alpha value to 1
+		// after waiting for 1000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(bluecopy).wait(1000).to({alpha:1}, 1000);
+
+		// create container to store frame1 elements - all except the logo.
+		container1 = stage.addChild(new createjs.Container());
+
+		// add elements to container1.
+		container1.addChild(products, gradient1, bluecopy);
+
+		// animate the container1 alpha value to 0
+		// after waiting for 2000 miliseconds
+		// over the duration of 1000 milliseconds.
+		createjs.Tween.get(container1).wait(2000).to({alpha:0}, 1000);
 		
 		// after a timeout and the animations have completed, draw frame 2.
 		setTimeout(frame2, 3000);
