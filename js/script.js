@@ -259,7 +259,7 @@ window.onload = function(){
 		// after waiting for 4000 miliseconds
 		// over the duration of 1000 milliseconds.
 		createjs.Tween.get(ctaSheen).wait(2000).to({alpha:1}, 500, createjs.Ease.elasticInOut)
-		.wait(2000).to({alpha:0}, 500, createjs.Ease.elasticInOut);
+		.wait(1500).to({alpha:0}, 500, createjs.Ease.elasticInOut);
 
 
 		// create container to store frame3 elements - all except the logo.
