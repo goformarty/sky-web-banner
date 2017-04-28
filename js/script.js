@@ -95,7 +95,7 @@ window.onload = function(){
 		gradient1.alpha = 0;
 		// animate the bluecopy bitmap alpha value to 1
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(gradient1).to({alpha:1}, 800);
+		createjs.Tween.get(gradient1).to({alpha:1}, 1000);
 
 		// create blue copy text element:
 		// provide the loader result for the item with id == 'bluecopy'
@@ -106,7 +106,7 @@ window.onload = function(){
 		// animate the bluecopy bitmap alpha value to 1
 		// after waiting for 1000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(bluecopy).wait(500).to({alpha:1}, 800);
+		createjs.Tween.get(bluecopy).wait(700).to({alpha:1}, 800);
 
 		// create container to store frame1 elements - all except the logo.
 		container1 = stage.addChild(new createjs.Container());
@@ -117,10 +117,10 @@ window.onload = function(){
 		// animate the container1 alpha value to 0
 		// after waiting for 2000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(container1).wait(2000).to({alpha:0}, 800);
+		createjs.Tween.get(container1).wait(4000).to({alpha:0}, 1000);
 		
 		// after a timeout and the animations have completed, draw frame 2.
-		setTimeout(frame2, 3000);
+		setTimeout(frame2, 5000);
 	}
 	
 	function frame2() {
@@ -147,7 +147,7 @@ window.onload = function(){
 		// animate the bluecopy bitmap alpha value to 1
 		// after waiting for 1000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(greycopy).wait(600).to({alpha:1}, 1000);
+		createjs.Tween.get(greycopy).wait(500).to({alpha:1}, 2000);
 		
 		// create stamp element:
 		// provide the loader result for the item with id == 'stamp'
@@ -158,7 +158,7 @@ window.onload = function(){
 		// animate the stamp bitmap y value to 0 with bounceOut effect
 		// after waiting for 1000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(stamp).wait(600).to({y:0}, 1000, createjs.Ease.bounceOut);
+		createjs.Tween.get(stamp).wait(1000).to({y:0}, 700, createjs.Ease.bounceOut);
 
 
 		// create container to store frame2 elements - all except the logo.
@@ -168,11 +168,11 @@ window.onload = function(){
 		// animate the container2 alpha value to 0
 		// after waiting for 2000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(container2).wait(2000).to({alpha:0}, 1000);
+		createjs.Tween.get(container2).wait(4000).to({alpha:0}, 1000);
 
 		
 		// after a timeout and the animations have completed, draw frame 3.
-		setTimeout(frame3, 3000);
+		setTimeout(frame3, 5000);
 	}
 	
 	function frame3() {
@@ -191,8 +191,6 @@ window.onload = function(){
 		ctaSheen = new createjs.Bitmap("http://landtransportguru.net/web/wp-content/uploads/2016/02/Ad-MediumRectangle-300x250.jpg");
 
 		ctaSheen.image.onload = function() {
-
-
 			imgSheen.graphics.beginLinearGradientFill(['rgba(255,255,255,0)', '#000', 'rgba(255,255,255,0)'], [0, 0.5, 1], 0, 0, 50, 0).drawRect(0, 0, 100, 400);
 			c.cache(0,0,100,400);
 
@@ -216,7 +214,7 @@ window.onload = function(){
 		gradient3.alpha = 0;
 		// animate the bluecopy bitmap alpha value to 1
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(gradient3).to({alpha:1}, 500);
+		createjs.Tween.get(gradient3).to({alpha:1}, 1000);
 
 		// create blue copy text element:
 		// provide the loader result for the item with id == 'bluecopy3'
@@ -227,7 +225,7 @@ window.onload = function(){
 		// animate the bluecopy bitmap alpha value to 1
 		// after waiting for 1000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(bluecopy3).wait(500).to({alpha:1}, 500);
+		createjs.Tween.get(bluecopy3).wait(1000).to({alpha:1}, 1000);
 
 		// create gradient text element:
 		// provide the loader result for the item with id == 'gradient3a'
@@ -238,7 +236,7 @@ window.onload = function(){
 		// animate the gradient3a bitmap alpha value to 1
 		// after waiting for 2000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(gradient3a).wait(700).to({alpha:1}, 1000);
+		createjs.Tween.get(gradient3a).wait(2000).to({alpha:1}, 1000);
 
 		// create grey copy text element:
 		// provide the loader result for the item with id == 'greycopy3'
@@ -249,7 +247,7 @@ window.onload = function(){
 		// animate the greycopy3 bitmap alpha value to 1
 		// after waiting for 3000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(greycopy3).wait(900).to({alpha:1}, 1000);
+		createjs.Tween.get(greycopy3).wait(2500).to({alpha:1}, 1000);
 
 		// create cta sheen element:
 		// provide the loader result for the item with id == 'ctaSheen'
@@ -260,8 +258,8 @@ window.onload = function(){
 		// animate the stamp bitmap y value to 0 with bounceOut effect
 		// after waiting for 4000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(ctaSheen).wait(500).to({alpha:1}, 1000, createjs.Ease.elasticInOut)
-		.wait(2000).to({alpha:0}, 200, createjs.Ease.elasticInOut);
+		createjs.Tween.get(ctaSheen).wait(2000).to({alpha:1}, 500, createjs.Ease.elasticInOut)
+		.wait(2000).to({alpha:0}, 500, createjs.Ease.elasticInOut);
 
 
 		// create container to store frame3 elements - all except the logo.
@@ -269,7 +267,7 @@ window.onload = function(){
 		// add elements to container2.
 		container3.addChild(gradient3, bluecopy3, gradient3a, greycopy3, cta, ctaSheen);
 		// after a timeout and the animations have completed, clear the stage.
-		setTimeout(clearTheStage, 3000);
+		setTimeout(clearTheStage, 5000);
 	}
 	function clearTheStage() {
 		console.log("Stop all animations.");
