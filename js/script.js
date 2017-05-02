@@ -95,7 +95,7 @@ window.onload = function(){
 		gradient1.alpha = 0;
 		// animate the bluecopy bitmap alpha value to 1
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(gradient1).to({alpha:1}, 1000);
+		createjs.Tween.get(gradient1).to({alpha:1}, 800);
 
 		// create blue copy text element:
 		// provide the loader result for the item with id == 'bluecopy'
@@ -117,10 +117,10 @@ window.onload = function(){
 		// animate the container1 alpha value to 0
 		// after waiting for 2000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(container1).wait(4000).to({alpha:0}, 1000);
+		createjs.Tween.get(container1).wait(2700).to({alpha:0}, 800);
 		
 		// after a timeout and the animations have completed, draw frame 2.
-		setTimeout(frame2, 5000);
+		setTimeout(frame2, 3500);
 	}
 	
 	function frame2() {
@@ -136,7 +136,7 @@ window.onload = function(){
 		gradient2.alpha = 0;
 		// animate the bluecopy bitmap alpha value to 1
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(gradient2).to({alpha:1}, 1000);
+		createjs.Tween.get(gradient2).to({alpha:1}, 800);
 
 		// create grey copy text element:
 		// provide the loader result for the item with id == 'greycopy'
@@ -154,11 +154,11 @@ window.onload = function(){
 		// as a bitmap which will be stored in our stamp variable.
 		stamp = new createjs.Bitmap( loader.getResult( "stamp" ) );
 		// move stamp element above the canvas
-		stamp.y = -250;
+		stamp.y = -300;
 		// animate the stamp bitmap y value to 0 with bounceOut effect
 		// after waiting for 1000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(stamp).wait(1000).to({y:0}, 700, createjs.Ease.bounceOut);
+		createjs.Tween.get(stamp).wait(800).to({y:0}, 800, createjs.Ease.bounceOut);
 
 
 		// create container to store frame2 elements - all except the logo.
@@ -168,11 +168,11 @@ window.onload = function(){
 		// animate the container2 alpha value to 0
 		// after waiting for 2000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(container2).wait(4000).to({alpha:0}, 1000);
+		createjs.Tween.get(container2).wait(3200).to({alpha:0}, 800);
 
 		
 		// after a timeout and the animations have completed, draw frame 3.
-		setTimeout(frame3, 5000);
+		setTimeout(frame3, 4000);
 	}
 	
 	function frame3() {
@@ -184,11 +184,6 @@ window.onload = function(){
 		// provide the loader result for the item with id == 'cta'
 		// as a bitmap which will be stored in our cta variable.
 		cta = new createjs.Bitmap( loader.getResult( "cta" ) );
-
-
-
-		
-
 
 		// create gradient text element:
 		// provide the loader result for the item with id == 'gradient3'
@@ -209,7 +204,7 @@ window.onload = function(){
 		// animate the bluecopy bitmap alpha value to 1
 		// after waiting for 1000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(bluecopy3).wait(1000).to({alpha:1}, 1000);
+		createjs.Tween.get(bluecopy3).wait(1000).to({alpha:1}, 800);
 
 		// create gradient text element:
 		// provide the loader result for the item with id == 'gradient3a'
@@ -220,7 +215,7 @@ window.onload = function(){
 		// animate the gradient3a bitmap alpha value to 1
 		// after waiting for 2000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(gradient3a).wait(2000).to({alpha:1}, 1000);
+		createjs.Tween.get(gradient3a).wait(2500).to({alpha:1}, 800);
 
 		// create grey copy text element:
 		// provide the loader result for the item with id == 'greycopy3'
@@ -231,7 +226,7 @@ window.onload = function(){
 		// animate the greycopy3 bitmap alpha value to 1
 		// after waiting for 3000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(greycopy3).wait(2500).to({alpha:1}, 1000);
+		createjs.Tween.get(greycopy3).wait(3200).to({alpha:1}, 1000);
 
 		// create cta sheen element:
 		// provide the loader result for the item with id == 'ctaSheen'
@@ -242,22 +237,27 @@ window.onload = function(){
 		// animate the stamp bitmap y value to 0 with bounceOut effect
 		// after waiting for 4000 miliseconds
 		// over the duration of 1000 milliseconds.
-		createjs.Tween.get(ctaSheen).wait(3500).call(sheenEffect).to({alpha:1}, 500, createjs.Ease.elasticInOut).wait(1000).to({alpha:0}, 500, createjs.Ease.elasticInOut);
+		createjs.Tween.get(ctaSheen).wait(5000).call(sheenEffect).to({alpha:1}, 500, createjs.Ease.elasticInOut).wait(1000).to({alpha:0}, 500, createjs.Ease.elasticInOut);
 
 		function sheenEffect() {
+			// create vector Shape() instance which will be used to make the animated gradient sheen effect
 			var imgSheen = new createjs.Shape();
 			var c = new createjs.Container();
 			c.addChild(imgSheen);
 
+			// draw a gradient box with the method: beginLinearGradientFill ( colors  ratios  x0  y0  x1  y1 ) 
+			// and cache the container 
 			imgSheen.graphics.beginLinearGradientFill(['rgba(255,255,255,0)', '#000', 'rgba(255,255,255,0)'], [0, 0.5, 1], 0, 0, 120, 0).drawRect(0, 0, 100, 250);
 			c.cache(0,0,100,250);
 
-			createjs.Tween.get(imgSheen).to({x:300}, 1200, createjs.Ease.quadInOut)
+			// animate the gradient element to x:300 over the time 1200 miliseconds
+			createjs.Tween.get(imgSheen).to({x:300}, 1000, createjs.Ease.quadInOut)
 			.on("change", function() { 
 				c.cache(0,0,300,250); 
 				ctaSheen.cache(0,0,ctaSheen.image.width,ctaSheen.image.height);
 			});
 
+			// apply an alpha mask to a ctaSheen bitmap element
 			ctaSheen.filters = [
 			new createjs.AlphaMaskFilter(c.cacheCanvas)
 			];
@@ -268,7 +268,7 @@ window.onload = function(){
 		// add elements to container2.
 		container3.addChild(gradient3, bluecopy3, gradient3a, greycopy3, cta, ctaSheen);
 		// after a timeout and the animations have completed, clear the stage.
-		setTimeout(clearTheStage, 9000);
+		setTimeout(clearTheStage, 7500);
 	}
 	function clearTheStage() {
 		console.log("Stop all animations.");
